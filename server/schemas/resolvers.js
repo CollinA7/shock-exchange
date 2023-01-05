@@ -8,7 +8,7 @@ const resolvers = {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
           path: 'orders.products',
-          populate: 'category'
+          populate: 'category',
         });
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
@@ -17,7 +17,7 @@ const resolvers = {
       }
 
       throw new AuthenticationError('Not logged in');
-    }
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -28,7 +28,9 @@ const resolvers = {
     },
     updateUser: async (parent, args, context) => {
       if (context.user) {
-        return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+        return await User.findByIdAndUpdate(context.user._id, args, {
+          new: true,
+        });
       }
 
       throw new AuthenticationError('Not logged in');
@@ -49,8 +51,8 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    }
-  }
+    },
+  },
 };
 
 module.exports = resolvers;
