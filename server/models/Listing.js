@@ -7,6 +7,7 @@ const listingSchema = new Schema({
     required: true,
     trim: true,
   },
+  //   continue listing schema here
   createdAt: {},
   username: {},
   image: {},
