@@ -1,16 +1,17 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 
-function Account() {
-  function accountHandle() {
-    return console.log();
+const Account = () => {
+  function accountHandle({}) {
+    console.log('yes');
   }
+
   return (
     <>
       <ul>
         <li>
           <Button
-            onClick={accountHandle}
+            // onClick={accountHandle}
             id="account-details"
             value="account-details"
           >
@@ -26,6 +27,6 @@ function Account() {
       </ul>
     </>
   );
-}
+};
 
 export default Account;
