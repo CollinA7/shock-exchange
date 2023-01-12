@@ -7,8 +7,18 @@ const typeDefs = gql`
     username: String
   }
 
+  type User {
+    _id: ID
+    username: String
+    email: String
+    listings: [Listing]
+  }
+
   type Query {
-    listing(listingText: String): [Listing]
+    users: [User]
+    user(username: String!): User
+    listings(listingText: String): [Listing]
+    listing(_id: ID!): Listing
   }
 `;
 
