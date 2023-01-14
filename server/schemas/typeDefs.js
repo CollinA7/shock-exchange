@@ -4,7 +4,7 @@ const typeDefs = gql`
   type Listing {
     _id: ID
     listingText: String
-    username: String
+    user(username: String!): User
   }
 
   type User {
