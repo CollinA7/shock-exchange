@@ -29,6 +29,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  listings: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Listing',
+    },
+  ],
 });
 
 // set up pre-save middleware to create password
