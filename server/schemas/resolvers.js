@@ -61,12 +61,13 @@ const resolvers = {
           username: context.user.username,
         });
 
-        await Listing.findByIdAndUpdate(
+        await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $push: { listings: listing._id } },
           { new: true }
         );
 
+        console.log(User({ _id: '63c43a0cd09b0622ac83236c' }));
         return listing;
       }
 

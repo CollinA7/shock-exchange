@@ -4,7 +4,7 @@ const typeDefs = gql`
   type Listing {
     _id: ID
     listingText: String
-    user(username: String!): User
+    username: String
   }
 
   type User {
@@ -38,7 +38,7 @@ const typeDefs = gql`
       lastName: String!
       password: String!
     ): Auth
-    addListing(listingText: String!): Listing
+    addListing(listingText: String!, username: String!): Listing
   }
 `;
 
