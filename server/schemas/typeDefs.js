@@ -3,6 +3,7 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
   type Listing {
     _id: ID
+    listingTitle: String
     listingText: String
     username: String
   }
@@ -25,7 +26,7 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    listings(listingText: String): [Listing]
+    listings(listingTitle: String): [Listing]
     listing(_id: ID!): Listing
   }
 
@@ -38,7 +39,11 @@ const typeDefs = gql`
       lastName: String!
       password: String!
     ): Auth
-    addListing(listingText: String!, username: String!): Listing
+    addListing(
+      listingTitle: String!
+      listingText: String!
+      username: String!
+    ): Listing
   }
 `;
 

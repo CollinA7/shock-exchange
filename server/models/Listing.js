@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const listingSchema = new Schema({
+  listingTitle: {
+    type: String,
+    require: true,
+    trim: true,
+  },
   listingText: {
     type: String,
     required: true,

@@ -13,7 +13,7 @@ const Home = () => {
     <div className="container">
       <div className="col-4 mb-3">
         {loading ? (
-          <div> ..Loading..</div>
+          <div> ...Loading...</div>
         ) : (
           <ListingList listings={listings} title="Here are some listings:" />
         )}

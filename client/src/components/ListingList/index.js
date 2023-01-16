@@ -11,7 +11,7 @@ const ListingList = ({ listings, title }) => {
       {listings &&
         listings.map((listing) => (
           <div key={listing._id}>
-            <h4>{listing.username}</h4>
+            <h4>{listing.listingTitle}</h4>
             <p>{listing.listingText}</p>
             <span>For sale by {listing.username}</span>
           </div>

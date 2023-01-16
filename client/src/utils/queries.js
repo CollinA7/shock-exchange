@@ -1,9 +1,10 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_LISTINGS = gql`
-  query listings($listingText: String) {
-    listings(listingText: $listingText) {
+  query listings($listingTitle: String) {
+    listings(listingTitle: $listingTitle) {
       _id
+      listingTitle
       listingText
       username
     }

@@ -4,8 +4,8 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    listings: async (parent, { listingText }) => {
-      const params = listingText ? { listingText } : {};
+    listings: async (parent, { listingTitle }) => {
+      const params = listingTitle ? { listingTitle } : {};
       return Listing.find(params).sort({ createdAt: -1 });
     },
     listing: async (parent, { _id }) => {
