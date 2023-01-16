@@ -67,7 +67,6 @@ const resolvers = {
           { new: true }
         );
 
-        console.log(User({ _id: '63c43a0cd09b0622ac83236c' }));
         return listing;
       }
 

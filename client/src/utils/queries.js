@@ -5,6 +5,7 @@ export const QUERY_LISTINGS = gql`
     listings(listingText: $listingText) {
       _id
       listingText
+      username
     }
   }
 `;
