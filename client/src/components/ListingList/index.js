@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Link } from 'react-router-dom';
 
 const ListingList = ({ listings, title }) => {
   if (!listings.length) {
@@ -18,8 +19,20 @@ const ListingList = ({ listings, title }) => {
               <Card>
                 <Card.Body>
                   <Card.Title>{listing.listingTitle}</Card.Title>
-                  <Card.Text>{listing.listingText}</Card.Text>
-                  <span>For sale by {listing.username}</span>
+                  <Card.Text>
+                    <Link to={`/listing/${listing._id}`}>
+                      {/* Add the styling for the listing title */}
+                      <p className="listing-link">{listing.listingText}</p>
+                    </Link>
+                  </Card.Text>
+                  For sale by:{''}
+                  <Link
+                    to={`/profile/${listing.username}`}
+                    style={{ fontWeight: 500 }}
+                    className=""
+                  >
+                    {listing.username}
+                  </Link>
                 </Card.Body>
               </Card>
             </Col>
