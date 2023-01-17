@@ -1,4 +1,5 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container';
 import { useQuery } from '@apollo/client';
 import { QUERY_LISTINGS } from '../utils/queries';
 
@@ -10,15 +11,13 @@ const Home = () => {
   const listings = data?.listings || [];
 
   return (
-    <div className="container">
-      <div className="col-4 mb-3">
-        {loading ? (
-          <div> ...Loading...</div>
-        ) : (
-          <ListingList listings={listings} title="Here are some listings:" />
-        )}
-      </div>
-    </div>
+    <Container>
+      {loading ? (
+        <div> ...Loading...</div>
+      ) : (
+        <ListingList listings={listings} title="Here are some listings:" />
+      )}
+    </Container>
   );
 };
 
