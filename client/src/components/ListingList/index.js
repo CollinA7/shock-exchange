@@ -18,18 +18,19 @@ const ListingList = ({ listings, title }) => {
             <Col xs={4} key={listing._id}>
               <Card>
                 <Card.Body>
-                  <Card.Title>{listing.listingTitle}</Card.Title>
-                  <Card.Text>
+                  <Card.Title>
+                    {' '}
                     <Link to={`/listing/${listing._id}`}>
-                      {/* Add the styling for the listing title */}
-                      <p className="listing-link">{listing.listingText}</p>
+                      <h4 className="listing-link">{listing.listingTitle}</h4>
                     </Link>
+                  </Card.Title>
+                  <Card.Text>
+                    <p>{listing.listingText}</p>
                   </Card.Text>
                   For sale by:{''}
                   <Link
                     to={`/profile/${listing.username}`}
-                    style={{ fontWeight: 500 }}
-                    className=""
+                    className="user-link"
                   >
                     {listing.username}
                   </Link>

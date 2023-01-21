@@ -6,11 +6,12 @@ import {
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+// import { setContext } from '@apollo/client/link/context';
 
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Account from './pages/Account';
+import SingleListing from './pages/SingleListing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
@@ -46,6 +47,13 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/account" component={Account} />
             <Route component={NoMatch} />
+          </Switch>
+          <Switch>
+            <Route exact path="/account" component={Account}>
+              <Route exact path=":username" component={Account} />
+              <Route exact path="" component={Account} />
+            </Route>
+            <Route path="/listing/:id" component={SingleListing} />
           </Switch>
         </div>
       </Router>
