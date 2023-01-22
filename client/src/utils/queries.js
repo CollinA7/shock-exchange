@@ -21,3 +21,16 @@ export const QUERY_LISTING = gql`
     }
   }
 `;
+
+export const QUERY_USERNAME = gql`
+  query ($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      listings {
+        listingsTitle
+        listingText
+      }
+    }
+  }
+`;

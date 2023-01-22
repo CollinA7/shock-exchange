@@ -24,12 +24,10 @@ const ListingList = ({ listings, title }) => {
                       <h4 className="listing-link">{listing.listingTitle}</h4>
                     </Link>
                   </Card.Title>
-                  <Card.Text>
-                    <p>{listing.listingText}</p>
-                  </Card.Text>
+                  <Card.Text>{listing.listingText}</Card.Text>
                   For sale by:{''}
                   <Link
-                    to={`/profile/${listing.username}`}
+                    to={`/username/${listing.username}`}
                     className="user-link"
                   >
                     {listing.username}

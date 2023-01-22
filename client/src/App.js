@@ -11,6 +11,7 @@ import {
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Account from './pages/Account';
+import SingleUser from './pages/SingleUser';
 import SingleListing from './pages/SingleListing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -46,14 +47,11 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/account" component={Account} />
+            <Route exact path="/username/:user" component={SingleListing} />
+            {/* <Route path=":user" component={SingleUser} />
+            </Route> */}
+            <Route exact path="/listing/:id" component={SingleListing} />
             <Route component={NoMatch} />
-          </Switch>
-          <Switch>
-            <Route exact path="/account" component={Account}>
-              <Route exact path=":username" component={Account} />
-              <Route exact path="" component={Account} />
-            </Route>
-            <Route path="/listing/:id" component={SingleListing} />
           </Switch>
         </div>
       </Router>

@@ -1,7 +1,8 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+
 import { useQuery } from '@apollo/client';
 import { QUERY_LISTING } from '../utils/queries';
-import { useParams } from 'react-router-dom';
 
 function SingleListing() {
   const { id: listingId } = useParams();
@@ -15,7 +16,7 @@ function SingleListing() {
   if (loading) {
     return <div>...Loading...</div>;
   }
-  return <div>testing</div>;
+  return <div>{listing.listingTitle}</div>;
 }
 
 export default SingleListing;
