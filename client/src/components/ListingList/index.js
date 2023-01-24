@@ -26,10 +26,7 @@ const ListingList = ({ listings, title }) => {
                   </Card.Title>
                   <Card.Text>{listing.listingText}</Card.Text>
                   For sale by:{''}
-                  <Link
-                    to={`/username/${listing.username}`}
-                    className="user-link"
-                  >
+                  <Link to={`/user/${listing.username}`} className="user-link">
                     {listing.username}
                   </Link>
                 </Card.Body>

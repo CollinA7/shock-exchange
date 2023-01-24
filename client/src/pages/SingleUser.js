@@ -2,23 +2,26 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import { useQuery } from '@apollo/client';
-import { QUERY_USERNAME } from '../utils/queries';
+import { QUERY_USER } from '../utils/queries';
 
 function SingleUser() {
-  const { user: username } = useParams();
+  const { username: userData } = useParams();
 
-  const { loading, data } = useQuery(QUERY_USERNAME, {
-    variables: { user: username },
+  const { loading, error, data } = useQuery(QUERY_USER, {
+    variables: { userData },
   });
-  console.log(data);
-  const userData = data?.userame || {};
-  console.log(userData);
 
+  const user = data?.user || {};
+
+  console.log(user);
   if (loading) {
     return <div>...Loading...</div>;
   }
+  if (error) {
+    return `Error ${error}`;
+  }
 
-  return <div>{userData} test</div>;
+  return <div>{user.username}</div>;
 }
 
 export default SingleUser;
