@@ -8,20 +8,25 @@ function SingleUser() {
   const { username: userData } = useParams();
 
   const { loading, error, data } = useQuery(QUERY_USER, {
-    variables: { userData },
+    variables: { username: userData },
   });
 
   const user = data?.user || {};
 
-  console.log(user);
   if (loading) {
     return <div>...Loading...</div>;
   }
   if (error) {
+    console.log(JSON.stringify(error, null, 2));
+
     return `Error ${error}`;
   }
 
-  return <div>{user.username}</div>;
+  return (
+    <div>
+      <p>{user.username}</p>
+    </div>
+  );
 }
 
 export default SingleUser;
