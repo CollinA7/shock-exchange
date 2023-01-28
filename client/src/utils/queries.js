@@ -27,7 +27,11 @@ export const QUERY_USER = gql`
     user(username: $username) {
       _id
       username
-      listings: [Listing]
+      listings {
+        _id
+        listingTitle
+        listingText
+      }
     }
   }
 `;
