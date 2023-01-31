@@ -48,7 +48,6 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/account" component={Account} />
             <Route exact path="/user/:username" component={SingleUser} />
-            {/* <Route path=":user" component={SingleUser} /> */}
             <Route exact path="/listing/:id" component={SingleListing} />
             <Route component={NoMatch} />
           </Switch>

@@ -1,10 +1,12 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_USER } from '../utils/queries';
 
-function SingleUser({ title }) {
+function SingleUser() {
   const { username: userData } = useParams();
   //  try to destructure incoming props for the array
   const { loading, error, data } = useQuery(QUERY_USER, {
@@ -21,19 +23,28 @@ function SingleUser({ title }) {
 
     return `Error ${error}`;
   }
-  console.log(user);
+
   const listings = user.listings;
 
   const usersListings = listings.map((listing) => (
-    <div key={listing._id}>
-      <div>{listing.listingTitle}</div>
-      <p>{listing.listingText}</p>
-    </div>
+    <Col xs={4} key={listing._id}>
+      <Card>
+        <Card.Body>
+          <Card.Title>
+            {' '}
+            <Link to={`/listing/${listing._id}`}>
+              <h4 className="listing-link">{listing.listingTitle}</h4>
+            </Link>
+          </Card.Title>
+          <Card.Text>{listing.listingText}</Card.Text>
+        </Card.Body>
+      </Card>
+    </Col>
   ));
 
   return (
     <div>
-      <p>{user.username}</p>
+      <h2>{user.username}</h2>
       <div>{usersListings}</div>
     </div>
   );
