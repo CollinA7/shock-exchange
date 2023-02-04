@@ -17,6 +17,9 @@ const listingSchema = new Schema({
     required: true,
     trim: true,
   },
+  images: {
+    type: [],
+  },
 });
 
 const Listing = mongoose.model('Listing', listingSchema);

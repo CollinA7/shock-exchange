@@ -10,7 +10,7 @@ import {
 
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
-import Account from './pages/Account';
+import Profile from './pages/Profile';
 import SingleUser from './pages/SingleUser';
 import SingleListing from './pages/SingleListing';
 import Login from './pages/Login';
@@ -46,7 +46,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path="/account" component={Account} />
+            <Route exact path="/profile" component={Profile} />
             <Route exact path="/user/:username" component={SingleUser} />
             <Route exact path="/listing/:id" component={SingleListing} />
             <Route component={NoMatch} />
