@@ -3,7 +3,7 @@ const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 
 const multer = require('multer');
-const upload = multer({ dest: 'images/' });
+const upload = multer({ dest: '../client/public/images/uploads/profile' });
 
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
@@ -37,10 +37,7 @@ app.post(
   }
 );
 
-const cpUpload = upload.fields([
-  { name: 'avatar', maxCount: 1 },
-  { name: 'gallery', maxCount: 8 },
-]);
+const cpUpload = upload.fields([{ name: 'avatar', maxCount: 1 }]);
 app.post('/cool-profile', cpUpload, function (req, res, next) {
   // req.files is an object (String -> Array) where fieldname is the key, and the value is array of files
   //
