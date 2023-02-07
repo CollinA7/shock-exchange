@@ -3,7 +3,6 @@ const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 
 const multer = require('multer');
-const upload = multer({ dest: '../client/public/images/uploads/profile' });
 
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
@@ -23,35 +22,29 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Multer utilities
-app.post('/profile', upload.single('avatar'), function (req, res, next) {
-  // req.file is the `avatar` file
-  // req.body will hold the text fields, if there were any
+const storage = multer.diskStorage({
+  destination: '../client/public/images/uploads/profile',
+  filename: function (req, file, callBack) {
+    callBack(
+      null,
+      file.fieldname + '-' + Date.now() + path.extname(file.originalname)
+    );
+  },
 });
 
-app.post(
-  '/photos/upload',
-  upload.array('photos', 12),
-  function (req, res, next) {
-    // req.files is array of `photos` files
-    // req.body will contain the text fields, if there were any
-  }
-);
+const upload = multer({
+  storage: storage,
+}).single('avatar');
 
-const cpUpload = upload.fields([{ name: 'avatar', maxCount: 1 }]);
-app.post('/cool-profile', cpUpload, function (req, res, next) {
-  // req.files is an object (String -> Array) where fieldname is the key, and the value is array of files
-  //
-  // e.g.
-  //  req.files['avatar'][0] -> File
-  //  req.files['gallery'] -> Array
-  //
-  // req.body will contain the text fields, if there were any
-});
-
-app.post('/stats', upload.single('uploaded_file'), function (req, res) {
-  // req.file is the name of your file in the form above, here 'uploaded_file'
-  // req.body will hold the text fields, if there were any
-  console.log(req.file, req.body);
+app.post('/profile/photo', (req, res) => {
+  upload(req, res, (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(req.file);
+    }
+  });
+  console.log(req.file);
 });
 
 if (process.env.NODE_ENV === 'production') {
