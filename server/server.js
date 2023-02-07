@@ -32,6 +32,7 @@ const storage = multer.diskStorage({
   },
 });
 
+// Multer upload definition
 const upload = multer({
   storage: storage,
 }).single('avatar');
