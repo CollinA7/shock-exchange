@@ -1,0 +1,25 @@
+:root {
+  --base-color: #2a9d8f;
+  --secondary-color: #264653;
+  --tertiary-color: #e9c46a;
+  --quaternary-color: #f4a261;
+  --extra-color: #e76f51;
+}
+
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-style: none;
+}
+
+header {
+  background-color: var(--base-color);
+  text-align: center;
+}
+
+nav {
+  text-align: right;
+}
+
+nav a {
+  list-style-type: none;
+}
