@@ -16,7 +16,7 @@ const ListingList = ({ listings, title }) => {
         {listings &&
           listings.map((listing) => (
             <Col xs={4} key={listing._id}>
-              <Card>
+              <Card style={{ width: '300px', height: '170px' }}>
                 <Card.Body>
                   <Card.Title>
                     {' '}

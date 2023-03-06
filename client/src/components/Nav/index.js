@@ -7,7 +7,7 @@ function Nav() {
     if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
-          <li className="mx-1">
+          <li className="mx-1 list-unstyled">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
               Logout
@@ -36,9 +36,11 @@ function Nav() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
+          <h1>Shock</h1>
           <span role="img" aria-label="high voltage">
-            Shock⚡Exchange
+            ⚡
           </span>
+          <h1>Exchange</h1>
         </Link>
       </h1>
 

@@ -14,12 +14,21 @@
 header {
   background-color: var(--base-color);
   text-align: center;
+  text-decoration: none;
+}
+
+header h1 {
+  color: var(--secondary-color);
+  text-decoration: none;
 }
 
 nav {
   text-align: right;
+  color: var(--secondary-color);
 }
 
-nav a {
-  list-style-type: none;
+.card {
+  margin: 10px;
+  padding: 10px;
+  border: solid 1px #5e5e5e;
 }
