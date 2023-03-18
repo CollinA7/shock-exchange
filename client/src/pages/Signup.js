@@ -14,6 +14,7 @@ function Signup(props) {
       variables: {
         email: formState.email,
         password: formState.password,
+        username: formState.username,
         firstName: formState.firstName,
         lastName: formState.lastName,
       },
