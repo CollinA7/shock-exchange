@@ -6,6 +6,7 @@ function Profile() {
   }
   return (
     <div>
+      <img src="./images/stock-user.jpg" className="prof-pic" />
       <form action="/profile/photo" encType="multipart/form-data" method="post">
         <div className="form-group">
           <input type="file" className="form-control-file" name="avatar" />
