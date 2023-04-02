@@ -16,7 +16,11 @@ function SingleListing() {
   if (loading) {
     return <div>...Loading...</div>;
   }
-  return <div>{listing.listingTitle}</div>;
+  return (
+    <div>
+      <h3>{listing.listingTitle}</h3>
+    </div>
+  );
 }
 
 export default SingleListing;
