@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'react-bootstrap/Image';
 
 function Profile() {
   function submitHandler(e) {
@@ -6,7 +7,7 @@ function Profile() {
   }
   return (
     <div>
-      <img src="./images/stock-user.jpg" className="prof-pic" />
+      <Image src="./images/stock-user.jpg" className="rounded" alt="prof-pic" />
       <form action="/profile/photo" encType="multipart/form-data" method="post">
         <div className="form-group">
           <input type="file" className="form-control-file" name="avatar" />
