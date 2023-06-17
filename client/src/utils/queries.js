@@ -35,3 +35,14 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+export const QUERY_ME = gql`
+  query {
+    me {
+      username
+      _id
+      firstName
+      lastName
+    }
+  }
+`;
